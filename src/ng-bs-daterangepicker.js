@@ -59,6 +59,8 @@ angular.module('ngBootstrap', []).directive('input', function ($compile, $parse)
 
 			$element.daterangepicker(options, function(start, end) {
 				$scope.$apply(function () {
+					ngModel.$viewValue.startDate = start;
+					ngModel.$viewValue.endDate = end;
 					ngModel.$setViewValue({ startDate: start, endDate: end });
 					ngModel.$render();
 				});
